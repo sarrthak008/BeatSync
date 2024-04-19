@@ -1,0 +1,126 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media screen and (max-width:500px) {
+
+    
+    body{
+        background-color: #13111D;
+    }
+     #main{
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        overflow: hidden;
+        z-index: 11;
+     }
+
+
+     .show1{
+             height: 30vh;
+             width: 40vw;
+             position: absolute;
+             z-index: -1;
+             filter: blur(60px);
+             background: linear-gradient(rgb(51, 51, 249),rgb(69, 248, 69));
+     }
+
+   nav{
+    height: 6vh;
+    width: 100vw;
+    padding: 0 1vw;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+   }
+  
+   nav #left{
+    height: 100%;
+    width: 10vw;   
+   }
+
+   #left img{
+    height: 90%;
+   }
+
+   nav #right{
+    height: 100%;
+    width: 10vw;
+   }
+
+   #right img{
+    height: 100%;
+   }
+
+    #serch-div{
+        height: 6vh;
+        width: 100vw;
+        display: flex;
+        padding: 0 2vw;
+        align-items: center;
+        margin-top: 2vh;
+    }
+
+    #serch-div #song{
+        border: 0.1px solid black;
+        height: 5vh;
+        background-color: rgba(243, 238, 238, 0.34);
+        color: rgba(255, 255, 255, 0.664);
+        outline: none;
+        width: 60vw;
+        border-radius: 7px 0 0 7px;
+        padding: 0 2vw;
+        border-left: none;
+    }
+
+    #song::placeholder{
+        color: #ffffff8d;
+    }
+
+    #serch-div #search-btn{
+        height: 5vh;
+        width: 15vw;
+        border-radius: 0 7px 7px 0;
+        background-color: rgba(243, 238, 238, 0.34);
+        border: 0.1px solid black;
+        border-left: none;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    #search-btn img{
+        height: 80%;
+        object-fit: fill;
+    }
+
+    #top-music{
+        margin-top: 5vh;
+        height: 25vh;
+        width: 100vw;
+        
+    }
+
+    #top-music #heading{
+        height: 5vh;
+        width: 100%;
+    }
+
+    #heading .head1{
+        font-size: 5vw;
+        font-weight: 700;
+        color: #d6e8f7;
+    }
+
+    #heading .head2{
+        font-size: 6vw;
+        font-weight: 400;
+        color:rgba(218, 215, 215, 0.701);
+    }
+     
+}
