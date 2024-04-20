@@ -268,7 +268,14 @@
     width: 60%;
     border-radius: 7px;
     border: 0.5px solid black;
+    overflow: hidden;
    }
+   #left img{
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+  }
+
   
     #right-container{
       height: 100%;
@@ -282,20 +289,32 @@
     #right-container #right-up{
       height: 40%;
       width: 100%;
-     background-color: red;
     border-radius: 7px;
     border: 0.5px solid black;
     }
 
+
+    #right-up img{
+      height: 100%;
+      width: 100%;
+      object-fit: fill;
+    }
     
     #right-container #right-down{
       height: 40%;
       width: 100%;
-     background-color: red;
     border-radius: 7px;
     border: 0.5px solid black;
+    overflow: hidden;
   
 }
+#right-down img{
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
+
 #plyer{
   height: 100vh;
   position: absolute;

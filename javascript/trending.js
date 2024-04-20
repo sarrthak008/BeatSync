@@ -80,7 +80,6 @@ const MusicPlayer=(SongInfo)=>{
   let pic = document.querySelector("#img-div img")
   pic.setAttribute('src',`${SongInfo.pic}`)
 
-
 }
 
 
@@ -142,7 +141,63 @@ HidePlayer()
 
 
 
+let SearchMusic = document.querySelector("#search-btn")
 
+ SearchMusic.addEventListener('click',()=>{
+
+    let song = document.querySelector("#song").value
+     song= song.split(' ').join('')
+    console.log(song)
+
+    let url =`https://music.apinepdev.workers.dev/?song=${song}`
+     
+     fetch(url).then(resp=>{
+        return resp.json()
+    }).then(reslt=>{
+    console.log(reslt.data.results[0].image[1].link)
+
+       const SongInfo ={
+             name:[
+                reslt.data.results[0].album.name,
+                reslt.data.results[1].album.name,
+                reslt.data.results[2].album.name,
+
+             ],
+
+             url:[
+                reslt.data.results[0].downloadUrl[2].link,
+                reslt.data.results[1].downloadUrl[2].link,
+                reslt.data.results[2].downloadUrl[2].link
+
+             ],
+             pic:[
+                reslt.data.results[0].image[1].link,
+                reslt.data.results[1].image[1].link,
+                reslt.data.results[1].image[1].link,
+
+             ]
+
+       } 
+ addIntoDom(SongInfo) 
+
+    }).catch(err=>{console.log(err)})
+    
+ })
+
+
+ function addIntoDom(SongInfo) {
+       
+    let pic1 = document.querySelector("#leImg")
+    console.log(pic1)
+      pic1.setAttribute("src",`${SongInfo.pic[0]}`)
+    let pic2 = document.querySelector("#right-up img")
+         pic2.setAttribute("src",`${SongInfo.pic[1]}`)
+    
+     let pic3 = document.querySelector("#right-down img")
+         pic3.setAttribute("src",`${SongInfo.pic[2]}`)
+
+ }
+ 
  
 
 
