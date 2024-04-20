@@ -364,16 +364,23 @@ button img{
 }
 
 #music-logo{
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   border: 5px solid rgb(255, 250, 250);
   border-radius: 50%;
-  position: absolute;
-  left: -6%;
-  top: -4%;
+  position: fixed;
+   right: 10%;
+   bottom: 2%;
   background-color: transparent;
   border-bottom:5px solid rgb(210, 116, 239);
   animation: loader 1s linear infinite;
+  background-color: beige;
+}
+
+#music-logo img{
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
 }
 
 @keyframes loader {
