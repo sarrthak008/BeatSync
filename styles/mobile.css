@@ -17,8 +17,8 @@
         height: 100vh;
         width: 100vw;
         position: relative;
-        overflow: hidden;
         z-index: 11;
+        overflow: hidden;
      }
 
 
@@ -30,6 +30,17 @@
              filter: blur(60px);
              background: linear-gradient(rgb(51, 51, 249),rgb(69, 248, 69));
      }
+
+     .show2{
+      height: 30vh;
+      width: 40vw;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+      filter: blur(60px);
+      background: linear-gradient(rgb(243, 220, 107),rgb(244, 133, 103));
+}
 
    nav{
     height: 6vh;
@@ -100,19 +111,26 @@
     }
 
     #top-music{
-        margin-top: 5vh;
-        height: 25vh;
+        margin-top: 3vh;
+        height: 30vh;
         width: 100vw;
-        
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
     }
+
 
     #top-music #heading{
         height: 5vh;
         width: 100%;
+        padding: 0 2vw;
+        display: flex;
+        align-items: center;
+        gap: 2vw;
     }
 
     #heading .head1{
-        font-size: 5vw;
+        font-size: 6vw;
         font-weight: 700;
         color: #d6e8f7;
     }
@@ -122,5 +140,159 @@
         font-weight: 400;
         color:rgba(218, 215, 215, 0.701);
     }
-     
+     #heading img{
+        height: 3vh;
+     }
+  #top-music #top-list{
+    height: 25vh;
+    width: 98%;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 5vw;
+    white-space: nowrap;
+    margin-top: 2vh;
+    margin-bottom: 0;
+  }
+
+  #top-list::-webkit-scrollbar{
+    display: none;
+  }
+
+  .song-container{
+    height: 80%;
+    width: 50vw;
+    background-color:rgba(253, 251, 251, 0.231);
+    display: inline-block;
+    margin: 0 2vw;
+    transition: all 0.1s linear;
+    border-radius: 7px;
+    border: 0.1px solid black;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .song-container:hover{
+    height: 90%;
+    width: 70%;
+  }
+  .song-img{
+    height: 60%;
+    width: 100%;
+  }
+
+  .song-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+   .song-btns{
+    height:40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+   }
+  .song-txt{
+    height: 100%;
+    width: 60%;
+    margin-top: 2.5vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 6vw;
+    color: rgba(244, 240, 240, 0.815);
+    font-weight: 700;
+  }
+
+  .song-btn{
+    height: 100%;
+    width: 40%;
+    background-color: transparent;
+    border: none;
+  }
+  .song-btn img{
+    height: 100%;
+    object-fit: fill;
+  }
+
+
+
+  #lang{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #lang .lang-name{ 
+    box-shadow: 5px -10px 40px rgb(199, 47, 245);
+     padding: 0.2vh 5vw;
+     border-radius: 10px;
+     border: 0.01px solid rgba(255, 255, 255, 0.66);
+     color: rgba(255, 255, 255, 0.726);
+     background: linear-gradient(to right,rgba(147, 238, 179, 0.874),rgba(131, 176, 244, 0.874));
+  }
+
+   #serch-res{
+    height: 40vh;
+    width: 100vw;
+    margin-top: 2vh;
+   }
+   #serch-res #heading{
+    height: 5vh;
+    width: 100vw;
+    font-size: 7vw;
+    margin-left: 2vw;
+    font-weight: 500;
+    color: rgba(227, 226, 226, 0.726);
+   }
+   #heading span{
+    font-weight: 700;
+    color: aliceblue;
+   }
+
+   #ser-container{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    margin-top: 1.5vh;
+    gap: 2vw;
+   }
+
+   #ser-container #left{
+    height: 90%;
+    width: 60%;
+    border-radius: 7px;
+    border: 0.5px solid black;
+   }
+  
+    #right-container{
+      height: 100%;
+      width: 35%;
+      background-color: black;
+      display: flex;
+      flex-direction: column ;
+      gap: 3vh;
+    }
+
+    #right-container #right-up{
+      height: 40%;
+      width: 100%;
+     background-color: red;
+    border-radius: 7px;
+    border: 0.5px solid black;
+    }
+
+    
+    #right-container #right-down{
+      height: 40%;
+      width: 100%;
+     background-color: red;
+    border-radius: 7px;
+    border: 0.5px solid black;
+  
+
 }

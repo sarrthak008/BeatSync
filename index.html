@@ -1,32 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles/mobile.css">
-</head>
-<body>
-    <div id="main">
-       <div class="show1"></div>
-        <nav>
-            <div id="left"><img src="./images/logo.svg" alt=""></div>
-            <div id="right"><img src="./images/menu.svg" alt=""></div>
-        </nav>
-        <div id="serch-div">
-              <input type="text" placeholder="eg.sairat" id="song">
-             <button id="search-btn"><img src="./images/search.svg" alt="hii"></button>
-        </div>
-        <div id="top-music">
-              <div id="heading">
-                <span class="head1">Trending</span>
-                <span class="head2">music</span>
-            </div>
-            <div id="top-list">
 
-            </div>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/mobile.css">
+</head>
+
+<body>
+  <div id="main">
+    <div class="show1"></div>
+    <div class="show2"></div>
+    <nav>
+      <div id="left"><img src="./images/logo.svg" alt=""></div>
+      <div id="right"><img src="./images/menu.svg" alt=""></div>
+    </nav>
+    <div id="serch-div">
+      <input type="text" placeholder="eg.sairat" id="song">
+      <button id="search-btn"><img src="./images/search.svg" alt="hii"></button>
     </div>
-    
+    <div id="top-music">
+      <div id="heading">
+        <span class="head1">Trending</span>
+        <span class="head2">music</span>
+        <img src="./images/music.svg" alt="">
+      </div>
+      <div id="top-list">
+        <div class="song-container">
+          <div class="song-img">
+            <img src="https://c.saavncdn.com/633/Kaakan-Marathi-2015-500x500.jpg" alt="">
+          </div>
+          <div class="song-btns">
+            <span class="song-txt">Pihu bole</span>
+            <button class="song-btn">
+              <img src="./images/" alt="play">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="lang">
+          <button class="lang-name">marathi</button>
+          <button class="lang-name">hindi</button>
+          <button class="lang-name">english</button>
+    </div>
+   
+     <div id="serch-res">
+          <div id="heading"><span>Search </span>results !</div>
+          <div id="ser-container">
+               <div id="left"></div>
+               <div id="right-container">
+                  <div id="right-up"></div>
+                  <div id="right-down"></div>
+               </div>
+
+          </div>
+
+     </div>
+     
+
+ 
+  </div>
+
+  <script src="./javascript/trending.js"></script>
 </body>
+
 </html>
