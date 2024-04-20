@@ -49,6 +49,7 @@
      display: flex;
      align-items: center;
      justify-content: space-between;
+     margin-bottom: 3vh;
    }
   
    nav #left{
@@ -294,5 +295,96 @@
     border-radius: 7px;
     border: 0.5px solid black;
   
+}
+#plyer{
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5vh;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.785);
+  display: none;
+
+}
+
+#img-div{
+  height: 30vh;
+  width: 70vw;
+  background-color: red;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#img-div img{
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
+#controls{
+  height: 9vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5vh;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+#plyer #cross{
+  height: 7vh;
+  position: absolute;
+  right: 0;
+  top: -0%;
+}
+
+#controls input{
+  width: 90%;
+}
+
+#controls input[type='range']{
+  accent-color: rgb(179, 252, 179);
+}
+
+
+#controls button{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+button img{
+  height: 100%;
+  width: 100%;
+}
+
+#music-logo{
+  height: 60px;
+  width: 60px;
+  border: 5px solid rgb(255, 250, 250);
+  border-radius: 50%;
+  position: absolute;
+  left: -6%;
+  top: -4%;
+  background-color: transparent;
+  border-bottom:5px solid rgb(210, 116, 239);
+  animation: loader 1s linear infinite;
+}
+
+@keyframes loader {
+   0%{
+    transform: rotate(0deg);
+   }
+   100%{
+    transform: rotate(360deg);
+   }
+}
+
+
 
 }

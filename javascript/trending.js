@@ -47,7 +47,7 @@ const Trending = [
     {
         SongName: 'Dj wale Babu',
         posterUrl: 'https://c.saavncdn.com/012/The-Dance-Project-Season-1-Episode-12--Hindi-2019-20190206144932-500x500.jpg',
-        SongUrl: 'https://aac.saavncdn.com/012/669eed2e36b2bc7eef69135c73906bb8_320.mp4'
+        SongUrl: 'https://aac.saavncdn./com/012/669eed2e36b2bc7eef69135c73906bb8_320.mp4'
     },
     {
         SongName: 'Love Dose',
@@ -63,6 +63,31 @@ let audio = new Audio
 let container = document.querySelector('#top-list')
 
 var TrendingSongs = "" 
+
+
+
+
+const MusicPlayer=(SongInfo)=>{
+   console.log(SongInfo.url)
+  let timer = document.querySelector('#controls input')
+  audio.src = SongInfo.url
+  timer.max=audio.duration
+   setInterval(() => {
+    timer.value=audio.currentTime
+   }, 500);
+  audio.play()
+
+  let pic = document.querySelector("#img-div img")
+  pic.setAttribute('src',`${SongInfo.pic}`)
+
+
+}
+
+
+
+
+
+
 
 
 Trending.forEach((info,index)=>{
@@ -82,28 +107,38 @@ Trending.forEach((info,index)=>{
 
 container.innerHTML =TrendingSongs;
 
-let lastSong=[];
-
-
 container.addEventListener('click',(e)=>{
+  if(e.target.alt<9){
     
-
-
-     if(e.target.alt<=9){
-        e.target.src='../images/pause.svg'
-        lastSong.push(e.target)
-        audio.src = Trending[e.target.alt].SongUrl
-        audio.play()
-        let pause = e.target
-        
-        
-        
+     const sInfo ={
+        name: Trending[e.target.alt].SongName,
+        url:Trending[e.target.alt].SongUrl,
+        pic:Trending[e.target.alt].posterUrl
      }
-
-     
-     
-
+     MusicPlayer(sInfo)
+  }
 })
+
+
+function showPlayer(){
+    let logo = document.querySelector('#music-logo')
+    let player = document.querySelector('#plyer')
+    logo.addEventListener("click",()=>{
+       
+        player.style.display='flex'
+    })
+}
+showPlayer()
+
+function HidePlayer(){
+    let cross = document.querySelector('#cross')
+     console.log(cross)
+    let player = document.querySelector('#plyer')
+    cross.addEventListener("click",()=>{
+        player.style.display='none'
+    })
+}
+HidePlayer()
 
 
 
