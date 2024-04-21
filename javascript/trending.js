@@ -91,26 +91,22 @@ Trending.forEach((info,index)=>{
 
     TrendingSongs = TrendingSongs + `<div class="song-container">
     <div class="song-img">
-      <img src="${info.posterUrl}" alt="">
+      <img src="${info.posterUrl}" alt="${info.SongUrl}">
     </div>
-  <div class="song-btns">
-      <span class="song-txt">${info.SongName}</span>
-      <button class="song-btn">
-        <img src="../images/play.svg" alt="${index}">
-      </button>
-   </div>
+  
 </div>`
 })
 
 container.innerHTML =TrendingSongs;
 
 container.addEventListener('click',(e)=>{
-  if(e.target.alt<9){
-    
+    console.log(e.target.alt)
+  if(e.target.alt){
+     
      const sInfo ={
-        name: Trending[e.target.alt].SongName,
-        url:Trending[e.target.alt].SongUrl,
-        pic:Trending[e.target.alt].posterUrl
+        //name: Trending[e.target.alt].SongName,
+        url:`${e.target.alt}`,
+        pic:`${e.target.src}`
      }
      MusicPlayer(sInfo)
   }
