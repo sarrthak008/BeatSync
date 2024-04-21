@@ -74,12 +74,10 @@ const MusicPlayer=(SongInfo)=>{
   timer.max=audio.duration
    setInterval(() => {
     timer.value=audio.currentTime
-   }, 500);
+   }, 1);
   audio.play()
-
   let pic = document.querySelector("#img-div img")
   pic.setAttribute('src',`${SongInfo.pic}`)
-
 }
 
 
@@ -171,9 +169,9 @@ let SearchMusic = document.querySelector("#search-btn")
 
              ],
              pic:[
-                reslt.data.results[0].image[1].link,
-                reslt.data.results[1].image[1].link,
-                reslt.data.results[1].image[1].link,
+                 reslt.data.results[0].image[2].link,
+                 reslt.data.results[1].image[2].link,
+                 reslt.data.results[2].image[2].link,
 
              ]
 
@@ -190,13 +188,48 @@ let SearchMusic = document.querySelector("#search-btn")
     let pic1 = document.querySelector("#leImg")
     console.log(pic1)
       pic1.setAttribute("src",`${SongInfo.pic[0]}`)
+      pic1.setAttribute("alt",`${SongInfo.url[0]}`)
+ 
+
+      const Song1={
+           url:`${SongInfo.url[0]}`,
+           pic:`${SongInfo.pic[0]}`
+      }
+          
+    pic1.addEventListener('click',()=>{
+        MusicPlayer(Song1)
+    })
+
+
     let pic2 = document.querySelector("#right-up img")
          pic2.setAttribute("src",`${SongInfo.pic[1]}`)
-    
+         pic2.setAttribute("alt",`${SongInfo.url[1]}`)
+      
+         const Song2={
+            url:`${SongInfo.url[1]}`,
+            pic:`${SongInfo.pic[1]}`
+       }
+           
+     pic2.addEventListener('click',()=>{
+         MusicPlayer(Song2)
+     })
+
      let pic3 = document.querySelector("#right-down img")
          pic3.setAttribute("src",`${SongInfo.pic[2]}`)
-
+         pic3.setAttribute("alt",`${SongInfo.url[2]}`) 
+         
+         const Song3={
+            url:`${SongInfo.url[2]}`,
+            pic:`${SongInfo.pic[2]}`
+       }
+           
+     pic3.addEventListener('click',()=>{
+         MusicPlayer(Song3)
+     })
  }
+
+
+
  
  
 
