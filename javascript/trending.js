@@ -62,24 +62,46 @@ let audio = new Audio
 
 let container = document.querySelector('#top-list')
 
-var TrendingSongs = "" 
+var TrendingSongs = ""
 
 setInterval(() => {
-    ShowErr('click to play',10000)
-},10000);
+    ShowErr('click to play', 10000)
+}, 10000);
 
-const MusicPlayer=(SongInfo)=>{
-   ShowErr('playing....',5000)
-  let timer = document.querySelector('#controls input')
-  audio.src = SongInfo.url
-  timer.max=audio.duration
-   setInterval(() => {
-    timer.value=audio.currentTime
-   }, 1);
-  audio.play()
-  let pic = document.querySelector("#img-div img")
-  pic.setAttribute('src',`${SongInfo.pic}`)
-}
+const MusicPlayer = (SongInfo) => {
+    ShowErr('playing....', 5000)
+    let timer = document.querySelector('#controls input')
+    audio.src = SongInfo.url
+    timer.max = audio.duration
+    setInterval(() => {
+        timer.value = audio.currentTime
+    }, 1);
+    audio.play()
+    let pic = document.querySelector("#img-div img")
+    pic.setAttribute('src', `${SongInfo.pic}`)
+
+    //pause audiooo 
+
+    let flag = 1
+      
+    let control = document.querySelector("#controlbtn")
+
+       if(audio.play()){
+          control.addEventListener('click',()=>{
+            control.setAttribute('src','../images/pause1.svg')
+            audio.pause()
+             setTimeout(()=>{
+                document.querySelector('#plyer').style.display=`none`;
+             },2000)
+          })
+       }
+      let downloadBtn = document.querySelector('#download')
+         downloadBtn.addEventListener('click',()=>{
+            let anclor = document.querySelector('#anclor')
+            anclor.setAttribute('download',`${SongInfo.url}`)
+         }) 
+
+    }
 
 
 
@@ -88,7 +110,13 @@ const MusicPlayer=(SongInfo)=>{
 
 
 
-Trending.forEach((info,index)=>{
+
+
+
+
+
+
+Trending.forEach((info, index) => {
 
     TrendingSongs = TrendingSongs + `<div class="song-container">
     <div class="song-img">
@@ -98,38 +126,38 @@ Trending.forEach((info,index)=>{
 </div>`
 })
 
-container.innerHTML =TrendingSongs;
+container.innerHTML = TrendingSongs;
 
-container.addEventListener('click',(e)=>{
+container.addEventListener('click', (e) => {
     console.log(e.target.alt)
-  if(e.target.alt){
-     
-     const sInfo ={
-        //name: Trending[e.target.alt].SongName,
-        url:`${e.target.alt}`,
-        pic:`${e.target.src}`
-     }
-     MusicPlayer(sInfo)
-  }
+    if (e.target.alt) {
+
+        const sInfo = {
+            //name: Trending[e.target.alt].SongName,
+            url: `${e.target.alt}`,
+            pic: `${e.target.src}`
+        }
+        MusicPlayer(sInfo)
+    }
 })
 
 
-function showPlayer(){
+function showPlayer() {
     let logo = document.querySelector('#music-logo')
     let player = document.querySelector('#plyer')
-    logo.addEventListener("click",()=>{
-       
-        player.style.display='flex'
+    logo.addEventListener("click", () => {
+
+        player.style.display = 'flex'
     })
 }
 showPlayer()
 
-function HidePlayer(){
+function HidePlayer() {
     let cross = document.querySelector('#cross')
-     console.log(cross)
+    console.log(cross)
     let player = document.querySelector('#plyer')
-    cross.addEventListener("click",()=>{
-        player.style.display='none'
+    cross.addEventListener("click", () => {
+        player.style.display = 'none'
     })
 }
 HidePlayer()
@@ -138,112 +166,116 @@ HidePlayer()
 
 let SearchMusic = document.querySelector("#search-btn")
 
- SearchMusic.addEventListener('click',()=>{
-    
+SearchMusic.addEventListener('click', () => {
+
     let song = document.querySelector("#song").value
-     ShowErr(`work on ${song}`,1000)
-     song= song.split(' ').join('')
+    ShowErr(`work on ${song}`, 1000)
+    song = song.split(' ').join('')
     console.log(song)
 
 
-    let url =`https://music.apinepdev.workers.dev/?song=${song}`
-     
-     fetch(url).then(resp=>{
-        return resp.json()
-    }).then(reslt=>{
-    console.log(reslt.data.results[0].image[1].link)
+    let url = `https://music.apinepdev.workers.dev/?song=${song}`
 
-       const SongInfo ={
-             name:[
+    fetch(url).then(resp => {
+        return resp.json()
+    }).then(reslt => {
+        console.log(reslt.data.results[0].image[1].link)
+
+        const SongInfo = {
+            name: [
                 reslt.data.results[0].album.name,
                 reslt.data.results[1].album.name,
                 reslt.data.results[2].album.name,
 
-             ],
+            ],
 
-             url:[
+            url: [
                 reslt.data.results[0].downloadUrl[2].link,
                 reslt.data.results[1].downloadUrl[2].link,
                 reslt.data.results[2].downloadUrl[2].link
 
-             ],
-             pic:[
-                 reslt.data.results[0].image[2].link,
-                 reslt.data.results[1].image[2].link,
-                 reslt.data.results[2].image[2].link,
+            ],
+            pic: [
+                reslt.data.results[0].image[2].link,
+                reslt.data.results[1].image[2].link,
+                reslt.data.results[2].image[2].link,
 
-             ]
-
-       } 
- addIntoDom(SongInfo) 
-
-    }).catch(err=>{ShowErr('opps! searching error ',2000)})
-    
- })
+            ]
 
 
- function addIntoDom(SongInfo) {
-       
+        }
+        addIntoDom(SongInfo)
+        document.querySelector("#song").value = ""
+
+    }).catch(err => { ShowErr('opps! searching error ', 2000) })
+
+})
+
+
+function addIntoDom(SongInfo) {
+
     let pic1 = document.querySelector("#leImg")
     console.log(pic1)
-      pic1.setAttribute("src",`${SongInfo.pic[0]}`)
-      pic1.setAttribute("alt",`${SongInfo.url[0]}`)
- 
+    pic1.setAttribute("src", `${SongInfo.pic[0]}`)
+    pic1.setAttribute("alt", `${SongInfo.url[0]}`)
 
-      const Song1={
-           url:`${SongInfo.url[0]}`,
-           pic:`${SongInfo.pic[0]}`
-      }
-          
-    pic1.addEventListener('click',()=>{
+
+    const Song1 = {
+        url: `${SongInfo.url[0]}`,
+        pic: `${SongInfo.pic[0]}`
+    }
+
+    pic1.addEventListener('click', () => {
         MusicPlayer(Song1)
     })
 
 
     let pic2 = document.querySelector("#right-up img")
-         pic2.setAttribute("src",`${SongInfo.pic[1]}`)
-         pic2.setAttribute("alt",`${SongInfo.url[1]}`)
-      
-         const Song2={
-            url:`${SongInfo.url[1]}`,
-            pic:`${SongInfo.pic[1]}`
-       }
-           
-     pic2.addEventListener('click',()=>{
-         MusicPlayer(Song2)
-     })
+    pic2.setAttribute("src", `${SongInfo.pic[1]}`)
+    pic2.setAttribute("alt", `${SongInfo.url[1]}`)
 
-     let pic3 = document.querySelector("#right-down img")
-         pic3.setAttribute("src",`${SongInfo.pic[2]}`)
-         pic3.setAttribute("alt",`${SongInfo.url[2]}`) 
-         
-         const Song3={
-            url:`${SongInfo.url[2]}`,
-            pic:`${SongInfo.pic[2]}`
-       }
-           
-     pic3.addEventListener('click',()=>{
-         MusicPlayer(Song3)
-     })
- }
+    const Song2 = {
+        url: `${SongInfo.url[1]}`,
+        pic: `${SongInfo.pic[1]}`
+    }
+
+    pic2.addEventListener('click', () => {
+        MusicPlayer(Song2)
+    })
+
+    let pic3 = document.querySelector("#right-down img")
+    pic3.setAttribute("src", `${SongInfo.pic[2]}`)
+    pic3.setAttribute("alt", `${SongInfo.url[2]}`)
+
+    const Song3 = {
+        url: `${SongInfo.url[2]}`,
+        pic: `${SongInfo.pic[2]}`
+    }
+
+    pic3.addEventListener('click', () => {
+        MusicPlayer(Song3)
+    })
+}
 
 
 //ShowErr('hey',time)
 
- function  ShowErr(msg,time) {
+function ShowErr(msg, time) {
 
     let note = document.querySelector('#note')
-         note.style.display = 'block'
-         note.innerText = `${msg}`
-    setTimeout(()=>{
+    note.style.display = 'block'
+    note.innerText = `${msg}`
+    setTimeout(() => {
         note.style.display = 'none'
-    },`${time}`)
- }
+    }, `${time}`)
+}
 
 
- 
- 
- 
+
+
+
+
+
 
 
 

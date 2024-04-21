@@ -109,6 +109,7 @@
         border-radius: 7px 0 0 7px;
         padding: 0 2vw;
         border-left: none;
+        font-size: 5.5vw;
     }
 
     #song::placeholder{
@@ -359,10 +360,9 @@
 }
 
 #img-div{
-  height: 30vh;
-  width: 70vw;
-  background-color: red;
-  border-radius: 10px;
+  height: 25vh;
+  width: 90vw;
+  border-radius: 7px;
   overflow: hidden;
 }
 
@@ -379,7 +379,9 @@
   align-items: center;
   gap: 5vh;
   justify-content: space-between;
-  flex-direction: column;
+  padding: 0 5vw;
+  background-color: rgba(255, 255, 255, 0.511);
+
 }
 
 #plyer #cross{
@@ -390,18 +392,20 @@
 }
 
 #controls input{
-  width: 90%;
+  width: 40%;
 }
 
 #controls input[type='range']{
-  accent-color: rgb(179, 252, 179);
+  accent-color: rgb(76, 77, 78);
 }
 
 
 #controls button{
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
+  border: none;
+  background-color: transparent;
 }
 
 button img{
@@ -409,9 +413,13 @@ button img{
   width: 100%;
 }
 
+#dBtn{
+  border: none;
+}
+
 #music-logo{
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
   border: 5px solid rgb(255, 250, 250);
   border-radius: 50%;
   position: fixed;
