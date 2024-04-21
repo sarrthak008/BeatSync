@@ -64,11 +64,12 @@ let container = document.querySelector('#top-list')
 
 var TrendingSongs = "" 
 
-
-
+setInterval(() => {
+    ShowErr('click to play',10000)
+},10000);
 
 const MusicPlayer=(SongInfo)=>{
-   console.log(SongInfo.url)
+   ShowErr('playing....',5000)
   let timer = document.querySelector('#controls input')
   audio.src = SongInfo.url
   timer.max=audio.duration
@@ -138,10 +139,12 @@ HidePlayer()
 let SearchMusic = document.querySelector("#search-btn")
 
  SearchMusic.addEventListener('click',()=>{
-
+    
     let song = document.querySelector("#song").value
+     ShowErr(`work on ${song}`,1000)
      song= song.split(' ').join('')
     console.log(song)
+
 
     let url =`https://music.apinepdev.workers.dev/?song=${song}`
      
@@ -174,7 +177,7 @@ let SearchMusic = document.querySelector("#search-btn")
        } 
  addIntoDom(SongInfo) 
 
-    }).catch(err=>{console.log(err)})
+    }).catch(err=>{ShowErr('opps! searching error ',2000)})
     
  })
 
@@ -225,7 +228,20 @@ let SearchMusic = document.querySelector("#search-btn")
  }
 
 
+//ShowErr('hey',time)
 
+ function  ShowErr(msg,time) {
+
+    let note = document.querySelector('#note')
+         note.style.display = 'block'
+         note.innerText = `${msg}`
+    setTimeout(()=>{
+        note.style.display = 'none'
+    },`${time}`)
+ }
+
+
+ 
  
  
 

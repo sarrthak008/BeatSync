@@ -54,15 +54,31 @@
   
    nav #left{
     height: 80%;
-    width: 30vw; 
+    width: 20vw; 
     display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    gap: 4vw;
    }
 
-   #left #note{}
+    #note{
+    height: 65%;
+    background-color: rgba(181, 178, 178, 0.429);
+    border-radius: 19px;
+    text-align: center;
+    border: 0.1px solid black;
+    color: white;
+    display:block;
+    padding: 0.5vh 4vw;
+    display: none;
+    text-wrap: nowrap;
+    font-size: 4vw;
+   }
 
 
    #left img{
     height: 100%;
+    width:20vw;
    }
 
    nav #right{
